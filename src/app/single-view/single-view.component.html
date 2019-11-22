@@ -1,0 +1,15 @@
+<div class="" *ngFor="let view of single">
+  <nav>
+    <h1>{{ view.title.rendered }}</h1>
+    <h6>PUBLIISHED ON APRIL 29, 2019</h6>
+  </nav>
+  <div class="container">
+    <div class="mt-5 mb-5">
+      <img src="{{ view.featured_image }}" alt="" />
+    </div>
+    <p>{{ view.content.rendered }}</p>
+  </div>
+  <footer>
+    <p>Copyright 2019</p>
+  </footer>
+</div>

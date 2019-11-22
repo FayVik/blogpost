@@ -1,0 +1,36 @@
+<nav>
+  <h1>Epower Blog</h1>
+</nav>
+
+<div class="container-fluid">
+  <div class="display-row">
+    <div class="display" *ngFor="let blog of blogData" (click)="blockUser(blog.id)" id="showFristBlog">
+      <div class="featured-image">
+        <img src="{{ blog.featured_image }}" alt="" />
+      </div>
+      <h4>{{ blog.title.rendered }}</h4>
+      <p>{{ blog.excerpt.rendered }}</p>
+    </div>
+
+    <!-- <div class="display showSecBlog" *ngFor="let next of nextBlog" (click)="blockUser()" id="">
+      <div class="featured-image">
+        <img src="{{ next.featured_image }}" alt="" />
+      </div>
+      <h4>{{ next.title.rendered }}</h4>
+      <p>{{ next.excerpt.rendered }}</p>
+    </div> -->
+  </div>
+
+  <div class="row mb-5 mt-5">
+    <div class="col-6">
+      <button (click)="previous()">Previous</button>
+    </div>
+    <div class="col-6">
+      <button (click)="next()">Next</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Copyright 2019</p>
+</footer>
