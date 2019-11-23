@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -8,21 +9,30 @@ import { ApiService } from '../services/api.service';
 })
 export class SingleViewComponent implements OnInit {
   // SingleBlogView;
-  single: object;
-  constructor(public apiService: ApiService) {}
+  single;
+  slug;
+  sub;
+  date;
+  constructor(public apiService: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.SingleBlog();
   }
   SingleBlog() {
-    const blogs = localStorage.getItem('blog');
-    console.log(blogs);
-    this.apiService.getUserData(blogs).subscribe(response => {
-      console.log(response);
+    this.sub = this.route.params.subscribe(params => {
+      this.slug = params['slug']
+    })
+    const slugURL = this.slug.split('-');
+    const blogID = slugURL.pop();
+    this.apiService.getUserData(blogID).subscribe(response => {
       this.single = response;
-      this.single = Array.of(this.single);
-      // this.single = JSON()
-      console.log(this.single);
+      const date = new Date(this.single.date);
+      const publishedYear = date.getFullYear();
+      const publishedDate = date.getDate();
+      const months = ['January', 'Febraury', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const publishedMonth = months[date.getMonth()];
+      this.date = `${publishedMonth} ${publishedDate}, ${publishedYear}`;
+      console.log(this.date);
     });
   }
 }

@@ -7,10 +7,9 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  page = 1;
-  base_path = `https://epower.ng/wp-json/wp/v2/posts?page=${this.page}&per_page=6`;
+  base_path = `https://epower.ng/wp-json/wp/v2/posts?page=1&per_page=6`;
   list: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -37,14 +36,14 @@ export class ApiService {
     console.log(blogs);
     return this.http.get(`https://epower.ng/wp-json/wp/v2/posts/${blogs}`).pipe(retry(2), catchError(this.handleError));
   }
-  nextUser() {
+  nextUser(page) {
     return this.http
-      .get(`https://epower.ng/wp-json/wp/v2/posts?page=${(this.page += 1)}&per_page=6`)
+      .get(`https://epower.ng/wp-json/wp/v2/posts?page=${(page)}&per_page=6`)
       .pipe(retry(2), catchError(this.handleError));
   }
-  previousUser() {
+  previousUser(page) {
     return this.http
-      .get(`https://epower.ng/wp-json/wp/v2/posts?page=${(this.page -= 1)}&per_page=6`)
+      .get(`https://epower.ng/wp-json/wp/v2/posts?page=${(page)}&per_page=6`)
       .pipe(retry(2), catchError(this.handleError));
   }
 }

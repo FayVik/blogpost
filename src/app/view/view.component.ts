@@ -9,26 +9,26 @@ import { ApiService } from '../services/api.service';
 })
 export class ViewComponent implements OnInit {
   blogData;
-  constructor(private router: Router, public apiService: ApiService) {}
+  page = 1;
+  loading = false;
+  constructor(private router: Router, public apiService: ApiService) { }
 
   ngOnInit() {
     this.getAllBlog();
   }
   getAllBlog() {
+    this.loading = true;
     this.apiService.getBlog().subscribe(response => {
       console.log(response);
+      this.loading = false;
       this.blogData = response;
     });
   }
-  blockUser(blog) {
-    this.apiService.getSingle(blog).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['single-view']);
-      localStorage.setItem('blog', blog);
-    });
+  combineSlug(slug, id) {
+    return `${slug}-${id}`;
   }
   next() {
-    this.apiService.nextUser().subscribe(data => {
+    this.apiService.nextUser(this.page += 1).subscribe(data => {
       console.log(data);
       if (data) {
         this.blogData = data;
@@ -36,11 +36,13 @@ export class ViewComponent implements OnInit {
     });
   }
   previous() {
-    this.apiService.previousUser().subscribe(data => {
-      console.log(data);
-      if (data) {
-        this.blogData = data;
-      }
-    });
+    if (this.page > 1) {
+      this.apiService.previousUser(this.page -= 1).subscribe(data => {
+        console.log(data);
+        if (data) {
+          this.blogData = data;
+        }
+      });
+    }
   }
 }

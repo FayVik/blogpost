@@ -5,11 +5,11 @@ import { SingleViewComponent } from './single-view/single-view.component';
 
 const routes: Routes = [
   { path: '', component: ViewComponent },
-  { path: 'single-view', component: SingleViewComponent }
+  { path: 'single-view/:slug', component: SingleViewComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

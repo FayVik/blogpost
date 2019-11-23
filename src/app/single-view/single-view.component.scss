@@ -18,12 +18,19 @@ nav {
     font-size: 14px;
   }
 }
-
+.loader{
+  display: flex;
+  justify-content: center;
+}
 .single-view-image{
   img{
     width: 100%;
   }
 }
+
+  h3 {
+    color: red!important;
+  }
 
 footer {
   text-align: center;

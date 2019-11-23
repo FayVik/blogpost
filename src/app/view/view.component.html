@@ -3,22 +3,20 @@
 </nav>
 
 <div class="container-fluid">
-  <div class="display-row">
-    <div class="display" *ngFor="let blog of blogData" (click)="blockUser(blog.id)" id="showFristBlog">
-      <div class="featured-image">
+  <div class="loader" *ngIf="loading">
+    <img src="../../assets/loader.svg" alt="">
+  </div>
+  <div class="display-row" *ngIf="!loading">
+    <div class=" display" *ngFor="let blog of blogData" id="showFristBlog">
+      <a [routerLink]="['/single-view', combineSlug(blog.slug, blog.id)]">
         <img src="{{ blog.featured_image }}" alt="" />
-      </div>
-      <h4>{{ blog.title.rendered }}</h4>
-      <p>{{ blog.excerpt.rendered }}</p>
+        <div class="display-card">
+          <h4>{{ blog.title.rendered }}</h4>
+          <p>{{ blog.excerpt.rendered }}</p>
+        </div>
+      </a>
     </div>
 
-    <!-- <div class="display showSecBlog" *ngFor="let next of nextBlog" (click)="blockUser()" id="">
-      <div class="featured-image">
-        <img src="{{ next.featured_image }}" alt="" />
-      </div>
-      <h4>{{ next.title.rendered }}</h4>
-      <p>{{ next.excerpt.rendered }}</p>
-    </div> -->
   </div>
 
   <div class="row mb-5 mt-5">
