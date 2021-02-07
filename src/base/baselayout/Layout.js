@@ -15,4 +15,4 @@ function Layout({pageProps, children }) {
   )
 }
 
-export default LayoutVivian1@minHeightV                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+export default Layout
