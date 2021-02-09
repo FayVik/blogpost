@@ -1,0 +1,9 @@
+nav{
+  min-height: 15vh; 
+  background-color: rebeccapurple; 
+  color: lavender;
+}
+a{
+  color: white !important;
+  font-weight: bold;
+}

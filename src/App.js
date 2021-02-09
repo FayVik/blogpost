@@ -1,5 +1,7 @@
 import Baselayout from "./base/baselayout/Layout"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./page/Home";
+import Blog from "./page/Blog"
 
 function App({pageProps}) {
   return (
@@ -8,7 +10,10 @@ function App({pageProps}) {
       <Baselayout {...pageProps}>
         <Switch>
           <Route path="/">
-            Home page
+            <Home/>
+          </Route>
+           <Route path="/Blog">
+            <Blog/>
           </Route>
         </Switch>
       </Baselayout>

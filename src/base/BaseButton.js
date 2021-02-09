@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 function BaseButton({children}){
-  let bgcolor = "#8644dc"
+  let bgcolor = "rebeccapurple"
   let color = "#ffffff"
   let padd = "10px 60px"
   let border = "none"

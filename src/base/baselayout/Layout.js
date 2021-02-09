@@ -1,14 +1,12 @@
 import Nav from './Nav'
-import Button from "../BaseButton"
 
-function Layout({pageProps, children }) {
+function Layout({children }) {
   return (
     <>
       <Nav />
-      <div className="row justify-contnet-center align-items-center" stylr={{minHeight: "100vh"}}>
+      <div>
         <main>
           {children}
-          <Button {...pageProps}>Meat</Button>
         </main>
       </div>  
     </>
