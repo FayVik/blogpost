@@ -9,11 +9,11 @@ function App({pageProps}) {
       <div className="container-fluid p-0 m-0">
       <Baselayout {...pageProps}>
         <Switch>
+          <Route path="/Blog">
+            <Blog/>
+          </Route>
           <Route path="/">
             <Home/>
-          </Route>
-           <Route path="/Blog">
-            <Blog/>
           </Route>
         </Switch>
       </Baselayout>

@@ -1,6 +1,7 @@
 nav{
-  min-height: 15vh; 
+  /* min-height: 15vh;  */
   background-color: rebeccapurple; 
+  width: 100%;
 }
 li{
   list-style: none;
