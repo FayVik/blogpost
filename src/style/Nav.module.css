@@ -1,8 +1,19 @@
-nav{
-  /* min-height: 15vh;  */
-  background-color: rebeccapurple; 
+nav {
+  color: gray;
   width: 100%;
+  min-height: 15vh;
 }
-li{
+li {
   list-style: none;
+}
+img {
+  width: 40%;
+
+}
+a {
+  color: gray;
+  font-size: 20px;
+}
+a:hover{
+  color: #000000;
 }

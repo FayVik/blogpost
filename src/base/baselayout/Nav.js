@@ -1,68 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../style/Nav.module.css";
+import Logo from "../../image/fayviks.png";
 
 function Nav() {
   return (
     <div>
-      <nav class="fixed">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16">
-            <div class="flex flex-1 justify-start">
-              <Link
-                className="block lg:hidden px-3 py-1 h-8 w-auto text-md font-bold text-white"
-                to="/"
-              >
-                Fayvik
-              </Link>
+      <nav class="navbar navbar-expand-lg">
+        <Link className="block lg:hidden w-auto text-md font-bold " to="/">
+          <img src={Logo} className="logo" />
+        </Link>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-              <Link
-                className="hidden lg:block px-3 py-1 h-8 w-auto text-md font-bold text-white"
-                to="/"
-              >
-                Fayvik
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li className="nav-item mr-4">
+              <Link className="nav-link" to="/">
+                About
               </Link>
-            </div>
-            <div class="flex-1 flex items-center md:justify-end justify-center sm:items-stretch sm:justify-start">
-              <div class="">
-                <div class="flex justify-end">
-                  <li className=" mr-5">
-                    <Link
-                      className="text-white px-3 py-2 text-md font-bold"
-                      to="/"
-                    >
-                      About
-                    </Link>
-                  </li>
+            </li>
 
-                  <li className=" mr-5">
-                    <Link
-                      className="text-white px-3 py-2 text-md font-bold"
-                      to="/"
-                    >
-                      Services
-                    </Link>
-                  </li>
-                  <li className=" mr-5">
-                    <Link
-                      className="text-white px-3 py-2 text-md font-bold"
-                      to="/"
-                    >
-                      Works
-                    </Link>
-                  </li>
-                  <li className="">
-                    <Link
-                      className="text-white px-3 py-2 text-md font-bold"
-                      to="/Blog"
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                </div>
-              </div>
-            </div>
-          </div>
+            <li className="nav-item mr-4">
+              <Link className="nav-link" to="/">
+                Services
+              </Link>
+            </li>
+
+            <li className="nav-item mr-4">
+              <Link className="nav-link" to="/">
+                Works
+              </Link>
+            </li>
+
+            <li className="nav-item mr-4">
+              <Link className="nav-link" to="/Blog">
+                Blog
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>

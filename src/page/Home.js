@@ -1,19 +1,19 @@
 import React from "react";
-import Button from "../base/BaseButton";
+// import Button from "../base/BaseButton";
 import style from "../style/Home.module.css";
 import image from "../image/vick.png";
 
 function Home({ pageProps }) {
   return (
     <div className={style.container}>
-      <div className="flex flex-wrap items-center justify-center">
-        <div className={style.width}>
-          <div className="bg-red">
-            <Button {...pageProps}>Meat</Button>
+      <div className="row align-items-center justify-content-center p-0 m-0">
+        <div className={`${style.width}, col-lg-6`}>
+          <div className="bg-red flex-1">
+            {/* <Button {...pageProps}>Meat</Button> */}
           </div>
         </div>
-        <div className={style.width}>
-          <img src={image}/>
+        <div className={`${style.width}, col-lg-6 text-center`}>
+          <img src={image} className={`${style.width}`} alt="My logo"/>
         </div>
       </div>
     </div>
