@@ -11,7 +11,7 @@ img {
 
 }
 a {
-  color: gray;
+  color: gray !important;
   font-size: 20px;
 }
 a:hover{
