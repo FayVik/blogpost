@@ -13,7 +13,7 @@ function App({pageProps}) {
             <Blog/>
           </Route>
           <Route path="/">
-            
+            <Home/>
           </Route>
         </Switch>
       </Baselayout>
